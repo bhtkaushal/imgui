@@ -22,6 +22,12 @@ add_library(ImGui STATIC
         backends/imgui_impl_opengl3.cpp
 )
 
+target_include_directories(ImGui PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/backends
+)
+target_link_libraries(ImGui PUBLIC glfw)
+
 if(UNIX)
     set_target_properties(ImGui PROPERTIES POSITION_INDEPENDENT_CODE ON)
 endif()
